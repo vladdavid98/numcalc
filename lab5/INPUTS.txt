@@ -1,0 +1,22 @@
+1)
+// nodes = time; distance = values; speed = der_values
+time = [0 3 5 8 13];
+distance = [0 225 383 623 993];
+speed = [75 77 80 74 72];
+
+div_dif_double(time,distance,speed)
+
+Hx = Hermite_Interp(time,distance,speed,3)
+[Hx, der_Hx] = Hermite_Interp_Der(time,distance,speed,3)
+[Hx, der_Hx] = Hermite_Interp_Der_Arr(time,distance,speed,[3 5])
+Hermite_Speed_Graph
+
+
+2)
+nodes = [1 2];
+values = [0 0.6931];
+der_values = [1 0.5];
+
+log(1.5) // = 0.4055
+[Hx, der_Hx] = Hermite_Interp_Der_Arr(nodes,values,der_values,[1.5]) // = 0.4091
+// so the absolute aproximation error is abs(log(1.5)-der_Hx) = 0.2592
